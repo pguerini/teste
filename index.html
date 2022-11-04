@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 4</title>
+    <script src="src/index.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <div class="image-container"></div>
+      <div class="select-container">
+        <form id="choices">
+          <p>
+            <label>Guess the fruit:</label>
+            <select id="choice">
+              <option>Apple</option>
+              <option>Pomegranate</option>
+              <option>Strawberry</option>
+              <option>Raspberry</option>
+              <option>Orange</option>
+              <option>Persimmon</option>
+              <option>Grapefruit</option>
+              <option>Kumquat</option>
+              <option>Banana</option>
+              <option>Mango</option>
+              <option>Lemon</option>
+              <option>Pineapple</option>
+              <option>Grapes</option>
+              <option>Kiwi</option>
+              <option>Pear</option>
+            </select>
+          </p>
+          <p>
+            <input type="submit" value="Submit" id="submit-choice" />
+          </p>
+        </form>
+      </div>
+      <div id="result"></div>
+    </main>
+
+    <!--
+
+  For this assignment, you must fetch data from a live endpoint and use it to add a randomized image to your page. Once you have verified the fetch is working, you will then add event handlers to allow you to guess which image will be chosen before the fetch is initiated.
+
+  INSTRUCTIONS: 
+
+  PART 1
+  ------------------------------------------------------------
+
+  1. Begin by creating a variable named data, which is initialized to null, and a variable named imageContainer which should be assigned a reference to the div with class 'image-container'. To get the reference to the div, use document.querySelector('.image-container') or any other suitable method
+  
+  2. Create a function named handleResult. Leave the function blank for the time being – you will add the necessary code inside the handleResult function in a later step.
+
+  3. Next, create a function named getData. The getData function must fetch a JSON object from https://comp2132.com/fruit and store it into (i.e. assign it to) the data variable created in step 1. Once the object is stored, then call your handleResult function.
+
+    Note: make sure that you do your assignment, and call to handleResult ONLY after the fetch is complete (i.e. inside the last .then() function)
+
+  4. Inside the handleResult function, add a statement that creates an HTML img element string and assigns it to the .innerHTML property. Use the 'url' and 'name' properties of the object stored in your data variable to populate the src and data-name attributes of your element.
+    e.g. imageContainer.innerHTML = `<img src="${...}" data-name="${...}">`
+
+  5. Finally, at the bottom of your script, call your getData function – this should trigger the following sequence of events:
+
+      getData() is called ->    
+          
+        data is fetched from comp2132.com ->    
+          
+          once data is returned, object is assigned to data variable and handleResult() is called
+
+            handleResult() creates an image and inserts it into the .image-container div
+  
+  6. Verify in the browser that a random image is now appearing each time you refresh the page
+
+
+  PART 2
+  ------------------------------------------------------------
+
+  7. Once you have verified that your fetch is working correctly, create three variables (these may be named whatever you prefer) that will store references to the following elements:
+    
+    a). the form with id "choices"
+    b). the select element with id "choice"
+    c). the div with id "result"
+
+  8. Attach an event listener (listening for the 'submit' event) to the form. Take your call to getData (from step 5) and move it inside the event listener so that an object is not fetched until the 'submit' button is clicked.
+
+    Note: make sure you call event.preventDefault() inside your listener before any other statements are run!
+
+  9. Go back to your handleResult and add the following functionality:
+
+    a). get the current selected value of the dropdown 
+        (for this you may use .selectedOptions[0].value on the select element from 7b)
+        and check it against the .name attribute of the object stored in the data variable
+
+    b). populate the .innerHTML of the 'results' div with an appropriate win/loss based on the result of the conditional statement from the previous statement
+
+    c). as in assignment 2, additionally add class 'win' or 'lose' to the 'results' div as appropriate
+
+
+  PART 3 - OPTIONAL, for an additional challenge
+  ------------------------------------------------------------
+
+  10. Add an event listener that empties out the results div (i.e. removes any existing success/fail message) whenever a new dropdown option is chosen
+
+  11. Add the 'disabled' attribute to the form's submit button whenever the handleResult() function is run. 
+    e.g. <input type="submit" value="Submit" disabled="true">
+  
+  12. Inside the event handler you created in step 10 add additional code to remove the 'disabled' attribute when a new dropdown option is chosen. If correctly implemented, it should be impossible to fetch a new image without first making a new selection from the dropdown.
+
+  
+  --></body>
+</html>

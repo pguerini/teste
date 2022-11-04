@@ -1,0 +1,53 @@
+:root {
+  --color-lightblue: rgb(227, 235, 253);
+  --color-blue: rgb(156, 178, 232);
+  --color-darkblue: rgb(42, 66, 123);
+}
+
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.image-container {
+  height: 256px;
+  width: 256px;
+  padding: 20px;
+  background-color: var(--color-lightblue);
+  border-radius: 20px;
+  border: 5px solid var(--color-blue);
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+#choices input[type="submit"] {
+  padding: 5px 15px;
+  border: 2px solid var(--color-blue);
+  border-radius: 5px;
+  background-color: var(--color-lightblue);
+  font-size: 1.3em;
+  color: var(--color-darkblue);
+}
+#choices input[type="submit"]:hover {
+  cursor: pointer;
+}
+#choices input[type="submit"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+#result {
+  height: 20px;
+}
+#result.win {
+  color: green;
+}
+#result.lose {
+  color: red;
+}
